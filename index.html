@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en" data-theme="dark-blue-indigo">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Page Algorithms</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- MathJax Configuration -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      startup: { typeset: false } 
+    };
+  </script>
+  
+  <!-- load MathJax (cdn) -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
+  <script src="theme.js"></script>
+  <!-- Ensure your script.js is using the updated CURRICULUM object we created -->
+  <script type="module" src="script.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- HEADER -->
+  <header class="max-w-7xl mx-auto p-4 md:p-6">
+    <div class="glass rounded-xl p-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      
+
+      <div>
+        <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight">OS Core: Memory Management</h1>
+        <p class="text-sm opacity-80 mt-1">Paging Algorithms & Implementation Repository</p>
+      </div>
+      
+      <!-- Theme Selector -->
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        <div class="flex items-center gap-2 bg-black/20 rounded-lg p-1 pr-3">
+          <span id="theme-chip" class="w-4 h-4 rounded-full bg-indigo-500 ml-2"></span>
+          <select id="theme-dropdown" class="bg-transparent text-sm border-none outline-none text-white/90 cursor-pointer">
+            <option value="dark-blue-indigo">Dark Blue & Indigo</option>
+                  <option value="cat-noir">Cat Noir</option>
+      <option value="blood-red">Blood Red</option>
+      <option value="sapphire-steel">Sapphire & Steel</option>
+      <option value="emerald-charcoal">Emerald & Charcoal</option>
+      <option value="digital-twilight">Digital Twilight</option>
+      <option value="coral-aqua">Coral & Aqua</option>
+      <option value="electric-citrus">Electric Citrus</option>
+      <option value="artisan-clay">Artisan Clay</option>
+      <option value="forest-canopy">Forest Canopy</option>
+      <option value="ocean-depth">Ocean Depth</option>
+      <option value="desert-sunset">Desert Sunset</option>
+      <option value="monochrome-focus">Monochrome Focus</option>
+      <option value="soft-nordic">Soft Nordic</option>
+      <option value="neutral-peach">Neutral Peach</option>
+      <option value="retro-pop">Retro Pop</option>
+      <option value="cyberpunk-glow">Cyberpunk Glow</option>
+      <option value="plum-gold">Plum & Gold</option>
+      <option value="red-blue">Red & Blue</option>
+      <option value="purple-black">Purple & Black</option>
+      <option value="dark-emerald">Dark Emerald</option>
+  <option value="emerald-red">Emerald & Red</option>
+  <option value="dark-blue-cyan">Dark Blue & Cyan</option>
+<option value="dark-blue-electric">Dark Blue & Electric Blue</option>
+<option value="dark-blue-teal">Dark Blue & Teal</option>
+<option value="dark-blue-indigo">Dark Blue & Indigo</option>
+<option value="dark-emerald-blue">Dark Emerald-Blue Hybrid</option>
+            
+          </select>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN APP LAYOUT -->
+  <main class="max-w-7xl mx-auto p-4 md:p-6 grid-large">
+    
+    <!-- LEFT SIDEBAR: NAVIGATION -->
+    <aside class="glass p-5 rounded-xl h-fit">
+      <div class="flex items-center justify-between">
+        <h2 class="text-lg font-bold">Notes on Memory Management</h2>
+        <span class="text-xs bg-white/10 px-2 py-1 rounded text-accent">CSC3002F</span>
+      </div>
+      
+      <p class="mt-2 text-sm opacity-70 mb-4">Select a section to view notes.</p>
+
+     <!-- Category Tabs: Ordered by CSC3002F Schedule -->
+<nav class="flex flex-col gap-1" aria-label="main-navigation">
+  
+  
+  
+  <button class="nav-tab btn btn-ghost justify-start" data-category="vm2">
+    1. Virtual Memory II
+  </button>
+  <button class="nav-tab btn btn-ghost justify-start" data-category="pgt">
+    2. Page Tables
+  </button>
+  <button class="nav-tab btn btn-ghost justify-start" data-category="swa">
+    3. Swapping
+  </button>
+  <button class="nav-tab btn btn-ghost justify-start" data-category="sha">
+    4. Sharing & Protection
+  </button>
+  <button class="nav-tab btn btn-ghost justify-start" data-category="multi">
+    5. Multi-level Page Tables
+  </button>
+  <button class="nav-tab btn btn-ghost justify-start" data-category="multi">
+    6. Paging
+  </button>
+
+  <button class="nav-tab btn btn-ghost justify-start" data-category="multi">
+    7. Page Faults
+  </button>
+
+  <button class="nav-tab btn btn-ghost justify-start" data-category="algo">
+    8. Page Replacement Algorithms
+  </button>
+
+
+
+</nav>
+
+      <div class="solid-divider"></div>
+
+      <!-- Dynamic Subtopic List (Injected by script.js) -->
+      <div id="topic-menu" class="space-y-2 max-h-[400px] overflow-y-auto pr-1 scrollbar-thin">
+        <div class="animate-pulse flex flex-col gap-2">
+            <div class="h-10 bg-white/5 rounded"></div>
+            <div class="h-10 bg-white/5 rounded"></div>
+        </div>
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-white/5 text-xs text-center opacity-50 font-mono">
+        System Status: <span class="text-green-400">Ready</span> • Page Algorithms v1.0
+      </div>
+    </aside>
+
+    <!-- RIGHT CONTENT: NOTE DISPLAY -->
+    <section class="glass p-6 rounded-xl min-h-[600px] relative">
+      
+      <!-- The Root Container for all Dynamic Modules -->
+      <div id="topic-root">
+        <div class="flex flex-col items-center justify-center h-[400px] text-center opacity-60">
+          <svg class="w-16 h-16 mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+          </svg>
+          <h3 class="text-xl font-bold">Page Algorithms Notes</h3>
+          <p class="max-w-sm mt-2">Select a module from the left to load the theoretical concepts and mathematical derivations.</p>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="max-w-7xl mx-auto p-6 text-center text-sm opacity-60">
+    <p>&copy; <span id="year">2026</span> Moegamat Samsodien.</p>
+  </footer>
+
+</body>
+</html>
