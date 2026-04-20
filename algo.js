@@ -912,6 +912,21 @@ public class ClockSecondChance_Algorithm {
                             </div>
                         </div>
                     </div>
+
+                    <!-- Files download -->
+                    <div class="glass p-6 rounded-2xl border border-white/10 bg-emerald-500/5">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-emerald-500/20 rounded-lg flex items-center justify-center text-xl">✅</div>
+                            <div class="flex-1">
+                                <h4 class="text-white font-bold mb-1">Link to the GitHub Repository</h4>
+                                <p class="text-xs text-gray-400 mb-4">If you require the zip file to download the correct code, here is the GitHub link.</p>
+                                <a href="https://github.com/Plum165/pgAlgo" target="_blank" class="btn btn-ghost text-xs text-emerald-400 border-emerald-500/30 inline-flex items-center gap-2">
+                                    <span>Open GitHub</span>
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 
                     <!-- FIFO -->
                     <div class="space-y-4">
