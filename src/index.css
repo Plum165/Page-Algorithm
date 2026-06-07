@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Custom Web Platform CSS Styles & Enhancements */
+@layer utilities {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px -8px rgba(0, 0, 0, 0.4);
+  }
+
+  .interactive-glow:hover {
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.12);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* Base style enhancements */
+body {
+  font-family: var(--font-sans);
+  background-color: #0a0c10;
+  color: #f1f5f9;
+  overflow-x: hidden;
+}
+
+/* MathJax custom styles to protect layout in dark mode */
+.mjx-chtml {
+  color: inherit !important;
+}
+mjx-container {
+  color: inherit !important;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Custom Scrollbar for sleek UI */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.2);
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.4);
+}
+
+/* Custom animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+}
+
+.pulsing-glow-indigo {
+  animation: pulseGlow 4s infinite ease-in-out;
+  box-shadow: 0 0 40px rgba(99, 102, 241, 0.12);
+}
+
+.pulsing-glow-emerald {
+  animation: pulseGlow 4s infinite ease-in-out;
+  box-shadow: 0 0 40px rgba(16, 185, 129, 0.12);
+}
